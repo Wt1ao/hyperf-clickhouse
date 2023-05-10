@@ -1,5 +1,5 @@
 {
-    "name": "txAdmin/hyperf-clickhouse",
+    "name": "tx-admin/hyperf-clickhouse",
     "description": "Clickhouse db for hyperf",
     "type": "library",
     "license": "MIT",
@@ -10,7 +10,7 @@
     },
     "authors": [
         {
-            "name": "txAdmin",
+            "name": "tx-admin",
             "email": "wagchao9508@gmail.com",
             "role": "translator"
         },
