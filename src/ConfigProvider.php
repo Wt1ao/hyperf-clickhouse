@@ -9,6 +9,8 @@ class ConfigProvider
     public function __invoke(): array
     {
         return [
+            /*
+             * 前往 config/autoload/databases.php 配置, 默认连接名: clickhouse
             'databases' => [
                 'clickhouse' => [
                     'driver' => 'clickhouse',
@@ -25,7 +27,7 @@ class ConfigProvider
                         'max_partitions_per_insert_block' => 300,
                     ],
                 ],
-            ],
+            ],*/
             'dependencies' => [
                 PoolFactory::class => PoolFactory::class,
                 ConnectionResolver::class => ConnectionResolver::class

@@ -10,12 +10,17 @@
     },
     "authors": [
         {
+            "name": "txAdmin",
+            "email": "wagchao9508@gmail.com",
+            "role": "translator"
+        },
+        {
             "name": "Abdul Hafidz A",
             "email": "aditans88@gmail.com"
         }
     ],
     "require": {
-        "the-tinderbox/clickhouse-builder": "^5.3"
+        "the-tinderbox/clickhouse-builder": "6.1.0"
     },
     "config": {
         "sort-packages": true

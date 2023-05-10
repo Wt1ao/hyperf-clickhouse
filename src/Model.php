@@ -57,6 +57,13 @@ class Model
      */
     public $exists = false;
 
+
+    /***
+     * The connection name for the model.
+     * @var string
+     */
+    protected $connection = 'clickhouse';
+
     /**
      * Get the table associated with the model.
      *
@@ -89,9 +96,9 @@ class Model
     /**
      * @return \Tinderbox\Clickhouse\Client
      */
-    public static function getClient()
+    public static function getClient($connection = 'clickhouse')
     {
-        return Clickhouse::connection('clickhouse')->getClient();
+        return Clickhouse::connection($connection)->getClient();
     }
 
     /**
@@ -111,7 +118,7 @@ class Model
      */
     public function newQuery()
     {   
-        return (new Builder)->from($this->getTableForInserts()); 
+        return (new Builder($this->getConnectionName()))->from($this->getTableForInserts());
     }
 
     /**
@@ -283,7 +290,30 @@ class Model
         if ($final) {
             $sql .= " FINAL";
         }
-        return static::getClient()->write($sql);
+        return static::getClient()->writeOne($sql);
+    }
+
+    /**
+     * Get the current connection name for the model.
+     *
+     * @return string
+     */
+    public function getConnectionName()
+    {
+        return $this->connection;
+    }
+
+    /**
+     * Set the connection associated with the model.
+     *
+     * @param string $name
+     * @return $this
+     */
+    public function setConnection($name)
+    {
+        $this->connection = $name;
+
+        return $this;
     }
 
 }

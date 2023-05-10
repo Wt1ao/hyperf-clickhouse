@@ -23,9 +23,9 @@ class Builder extends BaseBuilder
     /** @var string */
     protected $tableSources;
 
-    public function __construct()
+    public function __construct(string $connection = 'clickhouse')
     {
-        $this->client = Clickhouse::connection('clickhouse')->getClient();
+        $this->client = Clickhouse::connection($connection)->getClient();
         $this->grammar = new Grammar();
     }
     

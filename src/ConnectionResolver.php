@@ -16,7 +16,7 @@ class ConnectionResolver implements ConnectionResolverInterface
      *
      * @var string
      */
-    protected $default = 'default';
+    protected $default = 'clickhouse';
 
     /**
      * @var PoolFactory

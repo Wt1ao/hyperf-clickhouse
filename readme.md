@@ -10,6 +10,7 @@ More: https://github.com/smi2/phpClickHouse#features
 
 ## Prerequisites
 - PHP 7.1
+- PHP-ext swoole ^4.5.0 > 4.6.0
 - Hyperf PHP
 - Clickhouse server
 
@@ -18,7 +19,7 @@ More: https://github.com/smi2/phpClickHouse#features
 1. Install via composer
 
 ```sh
-$ composer require xtwoend/hyperf-clickhouse
+$ composer require wt1ao/hyperf-clickhouse
 ```
 
 2. Add new connection into your config/database.php:
@@ -152,7 +153,9 @@ Or bulk insert
 $rows = MyTable::select(['field_one', new RawColumn('sum(field_two)', 'field_two_sum')])
     ->where('created_at', '>', '2020-09-14 12:47:29')
     ->groupBy('field_one')
-    ->getRows();
+    ->get();
+
+var_dump($rows->rows);
 ```
 
 ## Advanced usage
